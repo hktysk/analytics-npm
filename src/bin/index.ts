@@ -1,3 +1,5 @@
+#!usr/bin/env node
+
 import commander from 'commander';
 import cheerio from 'cheerio';
 import axios from 'axios';

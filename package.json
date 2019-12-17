@@ -1,10 +1,13 @@
 {
   "name": "analytics-npm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "viewer of TUI for display to downloads count of npm package.",
   "files": [
     "build"
   ],
+  "bin": {
+    "analytics-npm": "build/bin/index.js"
+  },
   "main": "build/bin/index.js",
   "scripts": {
     "build": "tsc",
