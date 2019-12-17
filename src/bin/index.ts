@@ -1,3 +1,5 @@
+#!usr/bin/env node
+
 import commander from 'commander';
 import cheerio from 'cheerio';
 import axios from 'axios';
@@ -7,11 +9,11 @@ import render from './render';
 /*******************************
 * bin
 /******************************/
-commander.name('npm-download-analytics');
+commander.name('analytics-npm');
 commander.on('--help', () => {
   console.log();
   console.log('For more information, see');
-  console.log('https://github.com/hktysk/npm-download-analytics');
+  console.log('https://github.com/hktysk/analytics-npm');
   console.log();
 });
 
