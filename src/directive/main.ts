@@ -1,7 +1,7 @@
 import colors from 'colors';
 import Screen from '../screen'
 import { Downloads } from '../types';
-import BarChartGenerate from '../lib/BarChart';
+import BarChartGenerate, { Props as BarChartProps } from '../lib/BarChart';
 
 export default class main {
 
@@ -51,10 +51,18 @@ export default class main {
       old: number,
       label: {latest: string, old: string}
     ) => {
-      let BarChart = BarChartGenerate(latest, old, label.latest, label.old, 11)
+      const props: BarChartProps = {
+        numberToCompare: {
+          latest,
+          old
+        },
+        label,
+        width: 11
+      }
+
+      let BarChart = BarChartGenerate(props);
       BarChart = BarChart.map((v, k) => {
         if (k === BarChart.length - 1) return ` ${v}`;
-
         return colors.cyan(` ${v}`);
       })
 

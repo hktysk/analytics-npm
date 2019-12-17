@@ -42,7 +42,15 @@ var main = /** @class */ (function () {
                 _this.s.render();
             },
             updateBarChart: function (screen, latest, old, label) {
-                var BarChart = BarChart_1.default(latest, old, label.latest, label.old, 11);
+                var props = {
+                    numberToCompare: {
+                        latest: latest,
+                        old: old
+                    },
+                    label: label,
+                    width: 11
+                };
+                var BarChart = BarChart_1.default(props);
                 BarChart = BarChart.map(function (v, k) {
                     if (k === BarChart.length - 1)
                         return " " + v;

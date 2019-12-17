@@ -24,76 +24,54 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var colors_1 = __importDefault(require("colors"));
+var padBoth_1 = __importDefault(require("./padBoth"));
 var square = '█';
-function BarChartGenerate(num1, num2, label1, label2, width) {
-    var blocks;
-    if (num1 > 0 || num2 > 0) {
-        var isNum1Large = (num1 > num2);
-        var compare = isNum1Large
-            ? num2 / num1 * 100 - 100
-            : num1 / num2 * 100 - 100;
-        compare = Math.round(compare / 10);
-        if (compare <= -10)
-            compare = 9;
-        compare = Math.abs(compare);
-        if (num1 === 0 || num2 === 0) {
-            compare = 10;
+var height = 10;
+function BarChartGenerate(props) {
+    var _a = props.numberToCompare, latest = _a.latest, old = _a.old, label = props.label, width = props.width;
+    var barChart = [];
+    /* initialize */
+    var barBlock = {
+        latest: Array(height).fill(' '.repeat(width)),
+        old: Array(height).fill(' '.repeat(width))
+    };
+    /* Compare */
+    if (latest > 0 || old > 0) {
+        var isGreaterThenOld = (latest > old);
+        var ratio_1 = (isGreaterThenOld ? old / latest : latest / old) * 100 - 100;
+        var blockCount = Math.round(ratio_1 / height); // height means 100%
+        if (blockCount <= -height)
+            blockCount = height - 1;
+        blockCount = Math.abs(blockCount);
+        if (latest === 0 || old === 0) {
+            blockCount = height;
         }
-        var base = square.repeat(width);
-        blocks = {
-            num1: isNum1Large
-                ? Array(10).fill(base)
-                : Array(10 - compare).fill(base),
-            num2: isNum1Large
-                ? Array(10 - compare).fill(base)
-                : Array(10).fill(base)
+        var blocks = square.repeat(width);
+        barBlock = {
+            latest: Array(isGreaterThenOld ? height : height - blockCount).fill(blocks),
+            old: Array(isGreaterThenOld ? height - blockCount : height).fill(blocks)
         };
     }
-    else {
-        var base = ' '.repeat(width);
-        blocks = {
-            num1: Array(10).fill(base),
-            num2: Array(10).fill(base)
-        };
+    /* place side by side two bar charts. */
+    for (var i = 0; i < height; i++) {
+        var latest_1 = i < barBlock.latest.length ? barBlock.latest[i] : ' '.repeat(width);
+        var old_1 = i < barBlock.old.length ? barBlock.old[i] : ' '.repeat(width);
+        barChart.push(latest_1 + "  " + old_1);
     }
-    var r = [];
-    var max = Math.max(blocks.num1.length, blocks.num2.length);
-    for (var i = 0; i < max; i++) {
-        var num1_1 = i > blocks.num1.length - 1
-            ? ' '.repeat(width)
-            : blocks.num1[i];
-        var num2_1 = i > blocks.num2.length - 1
-            ? ' '.repeat(width)
-            : blocks.num2[i];
-        r.push(num1_1 + "  " + num2_1);
+    /* display to bar chart bottom that ratio only latest */
+    function paintCompare(ratio) {
+        return ratio.indexOf('-') > -1
+            ? colors_1.default.magenta(ratio) // negative number
+            : colors_1.default.green(ratio);
     }
-    function padBoth(s, width) {
-        var diff = width - s.length;
-        if (diff <= 0)
-            return s;
-        s = ' '.repeat(Math.floor(diff / 2)) + s;
-        s = s + ' '.repeat(Math.ceil(diff / 2));
-        return s;
-    }
-    function paintCompare(s) {
-        return s.indexOf('-') > -1 ? colors_1.default.magenta(s) : colors_1.default.green(s);
-    }
-    var resultCompare = {
-        num1: num1 > 1
-            ? num2 > 0 ? Math.round(num1 / num2 * 100 - 100) : 100
-            : 0,
-        num2: num2 > 1
-            ? num1 > 0 ? Math.round(num2 / num1 * 100 - 100) : 100
-            : 0
-    };
-    var resultCompareString = {
-        num1: paintCompare(padBoth("(" + resultCompare.num1 + "%)", width)),
-    };
+    var ratio = latest > 1
+        ? (old > 0 ? Math.round(latest / old * 100 - 100) : 100)
+        : 0;
     return __spread([
-        padBoth("" + num1, width) + "  " + padBoth("" + num2, width)
-    ], r.reverse(), [
-        padBoth("" + label1, width) + "  " + padBoth("" + label2, width),
-        "" + resultCompareString.num1
+        padBoth_1.default("" + latest, width) + "  " + padBoth_1.default("" + old, width)
+    ], barChart.reverse(), [
+        padBoth_1.default("" + label.latest, width) + "  " + padBoth_1.default("" + label.old, width),
+        "" + paintCompare(padBoth_1.default("(" + ratio + "%)", width))
     ]);
 }
 exports.default = BarChartGenerate;
