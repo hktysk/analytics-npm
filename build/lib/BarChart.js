@@ -88,13 +88,12 @@ function BarChartGenerate(num1, num2, label1, label2, width) {
     };
     var resultCompareString = {
         num1: paintCompare(padBoth("(" + resultCompare.num1 + "%)", width)),
-        num2: paintCompare(padBoth("(" + resultCompare.num2 + "%)", width))
     };
     return __spread([
         padBoth("" + num1, width) + "  " + padBoth("" + num2, width)
     ], r.reverse(), [
         padBoth("" + label1, width) + "  " + padBoth("" + label2, width),
-        resultCompareString.num1 + "  " + resultCompareString.num2
+        "" + resultCompareString.num1
     ]);
 }
 exports.default = BarChartGenerate;

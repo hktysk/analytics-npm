@@ -2,10 +2,10 @@
   "name": "npm-download-analytics",
   "version": "1.0.0",
   "description": "display download counts of npm package for specific account.",
-  "main": "index.js",
+  "main": "build/bin/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node build/index.js"
+    "start": "node build/bin/index.js"
   },
   "keywords": [
     "npm",

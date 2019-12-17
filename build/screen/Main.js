@@ -8,15 +8,12 @@ var blessed_contrib_1 = __importDefault(require("blessed-contrib"));
 var max = 20;
 var packages = 8;
 var height = 10;
-var bar = 4;
-var barHeight = 10;
 var Main = /** @class */ (function () {
     function Main(screen, grid) {
         this.screen = screen;
         this.grid = grid;
         this.packages = this.grid.set(0, 0, height, packages, blessed_1.default.list, {
             keys: true,
-            //mouse: true,
             parent: this.screen,
             scrollable: true,
             alwaysScroll: true,
@@ -26,7 +23,6 @@ var Main = /** @class */ (function () {
             selectedFg: 'black',
             selectedBg: 'white',
             align: 'left',
-            //interactive: false,
             border: { type: 'line' },
             style: {
                 fg: 'white',
@@ -47,9 +43,8 @@ var Main = /** @class */ (function () {
         });
         this.YoY = blessed_1.default.text({
             keys: true,
-            //mouse: true,
             parent: this.screen,
-            label: 'YoY',
+            label: ' Year ',
             top: '0',
             left: '40%',
             width: '21%',
@@ -70,9 +65,8 @@ var Main = /** @class */ (function () {
         });
         this.MoM = blessed_1.default.text({
             keys: true,
-            //mouse: true,
             parent: this.screen,
-            label: 'MoM',
+            label: ' 31 days ',
             top: '0',
             left: '60%',
             width: '21%',
@@ -93,9 +87,8 @@ var Main = /** @class */ (function () {
         });
         this.DoD = blessed_1.default.text({
             keys: true,
-            //mouse: true,
             parent: this.screen,
-            label: 'DoD',
+            label: ' 1 day ',
             top: '0',
             left: '80.5%',
             width: '20%',

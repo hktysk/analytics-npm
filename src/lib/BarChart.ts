@@ -74,13 +74,12 @@ function BarChartGenerate(num1: number, num2: number, label1: string, label2: st
   }
   const resultCompareString = {
     num1: paintCompare(padBoth(`(${resultCompare.num1}%)`, width)),
-    num2: paintCompare(padBoth(`(${resultCompare.num2}%)`, width))
   }
   return [
     `${padBoth(`${num1}`, width)}  ${padBoth(`${num2}`, width)}`,
     ...r.reverse(),
     `${padBoth(`${label1}`, width)}  ${padBoth(`${label2}`, width)}`,
-    `${resultCompareString.num1}  ${resultCompareString.num2}`
+    `${resultCompareString.num1}`
   ]
 }
 

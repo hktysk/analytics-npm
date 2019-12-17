@@ -10,8 +10,6 @@ export interface Frames {
 const max = 20;
 const packages = 8;
 const height = 10;
-const bar = 4;
-const barHeight = 10;
 
 export default class Main implements Frames {
 
@@ -22,7 +20,6 @@ export default class Main implements Frames {
 
   packages = this.grid.set(0, 0, height, packages, blessed.list, {
     keys: true,
-    //mouse: true,
     parent: this.screen,
     scrollable: true,
     alwaysScroll: true,
@@ -32,7 +29,6 @@ export default class Main implements Frames {
     selectedFg: 'black',
     selectedBg: 'white',
     align: 'left',
-    //interactive: false,
     border: { type: 'line' },
     style: {
       fg: 'white',
@@ -46,7 +42,7 @@ export default class Main implements Frames {
       }
     },
     noCellBorders: true,
-    tags: true, // 色付けする場合は必須,
+    tags: true,
     wrap: false,
     vi: true,
     search: true
@@ -54,9 +50,8 @@ export default class Main implements Frames {
 
   YoY = blessed.text({
     keys: true,
-    //mouse: true,
     parent: this.screen,
-    label: 'YoY',
+    label: ' Year ',
     top: '0',
     left: '40%',
     width: '21%',
@@ -73,14 +68,13 @@ export default class Main implements Frames {
         bg: 234
       }
     },
-    tags: true, // 色付けする場合は必須,
+    tags: true,
   })
 
   MoM = blessed.text({
     keys: true,
-    //mouse: true,
     parent: this.screen,
-    label: 'MoM',
+    label: ' 31 days ',
     top: '0',
     left: '60%',
     width: '21%',
@@ -97,14 +91,13 @@ export default class Main implements Frames {
         bg: 234
       }
     },
-    tags: true, // 色付けする場合は必須,
+    tags: true,
   })
 
   DoD = blessed.text({
     keys: true,
-    //mouse: true,
     parent: this.screen,
-    label: 'DoD',
+    label: ' 1 day ',
     top: '0',
     left: '80.5%',
     width: '20%',
@@ -121,7 +114,7 @@ export default class Main implements Frames {
         bg: 234
       }
     },
-    tags: true, // 色付けする場合は必須,
+    tags: true,
   })
 
   lineChart = this.grid.set(height, 0, height, max, contrib.line, {
