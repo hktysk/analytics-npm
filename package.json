@@ -1,5 +1,5 @@
 {
-  "name": "npm-download-analytics",
+  "name": "analytics-npm",
   "version": "1.0.0",
   "description": "viewer of TUI for display to downloads count of npm package.",
   "files": [
@@ -21,7 +21,7 @@
   "author": "hktysk",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hktysk/npm-download-analytics.git"
+    "url": "git+https://github.com/hktysk/analytics-npm.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -46,7 +46,7 @@
     "typescript": "^3.7.3"
   },
   "bugs": {
-    "url": "https://github.com/hktysk/npm-download-analytics/issues"
+    "url": "https://github.com/hktysk/analytics-npm/issues"
   },
-  "homepage": "https://github.com/hktysk/npm-download-analytics#readme"
+  "homepage": "https://github.com/hktysk/analytics-npm#readme"
 }

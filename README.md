@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/hktysk/images/blob/master/npm-analytics-tui/screen-shot.png?raw=true">
+  <img src="https://github.com/hktysk/images/blob/master/analytics-npm/screen-shot.png?raw=true">
 </p>
 
-# *npm-analytics-tui*
+# *analytics-npm*
 > viewer of TUI for display to downloads count of npm package.
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
@@ -21,10 +21,10 @@
 
 ### Installation
 ```sh
-npm install [-g] npm-analytics-tui
+npm install [-g] analytics-npm
 ```
 
 ### Usage
 ```sh
-npm-analytics-tui [account name on npm(e.g. angular, typescript)]
+analytics-npm [account name on npm(e.g. angular, typescript)]
 ```
