@@ -19,10 +19,16 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "@types/blessed": "^0.1.14",
+    "@types/colors": "^1.2.1",
+    "@types/lodash": "^4.14.149",
+    "@types/moment": "^2.13.0",
     "@types/node": "^12.12.17",
     "axios": "^0.19.0",
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.8.18",
+    "colors": "^1.4.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "typescript": "^3.7.3"
   }
 }
