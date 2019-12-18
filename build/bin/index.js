@@ -1,4 +1,4 @@
-#!usr/bin/env node
+#!/usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -48,11 +48,11 @@ var render_1 = __importDefault(require("./render"));
 /*******************************
 * bin
 /******************************/
-commander_1.default.name('npm-download-analytics');
+commander_1.default.name('analytics-npm');
 commander_1.default.on('--help', function () {
     console.log();
     console.log('For more information, see');
-    console.log('https://github.com/hktysk/npm-download-analytics');
+    console.log('https://github.com/hktysk/analytics-npm');
     console.log();
 });
 function bin(argv) {
