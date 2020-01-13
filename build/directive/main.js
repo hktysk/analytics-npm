@@ -17,11 +17,11 @@ var main = /** @class */ (function () {
             },
             updateLineChartForWeek: function (week, lastWeek) {
                 week = week.map(function (v) { return ({
-                    day: v.day.replace('2019-', '').replace('-', '/'),
+                    day: v.day.slice(5).replace('-', '/'),
                     downloads: v.downloads
                 }); });
                 lastWeek = lastWeek.map(function (v) { return ({
-                    day: v.day.replace('2019-', '').replace('-', '/'),
+                    day: v.day.slice(5).replace('-', '/'),
                     downloads: v.downloads
                 }); });
                 var days = week.map(function (v) { return v.day; });

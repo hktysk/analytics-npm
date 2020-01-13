@@ -84,8 +84,8 @@ function render(packages: string[]) {
     }
 
     /* year */
-    const latestDownloads: number = latest.map(v => v.downloads).reduce((a, b) => a + b);
-    const oldDownloads: number = old.map(v => v.downloads).reduce((a, b) => a + b);
+    const latestDownloads: number = latest.map(v => v.downloads).reduce((a, b) => a + b, 0);
+    const oldDownloads: number = old.map(v => v.downloads).reduce((a, b) => a + b, 0);
 
     directive.main.packages.updateBarChart(
       s.Main.YoY,
@@ -100,8 +100,8 @@ function render(packages: string[]) {
     /* month */
     const month = latest.slice(0, -2).slice(-31);
     const lastMonth = latest.slice(0, -33).slice(-31);
-    const monthDownloads: number = month.map(v => v.downloads).reduce((a, b) => a + b);
-    const lastMonthDownloads: number = lastMonth.map(v => v.downloads).reduce((a, b) => a + b);
+    const monthDownloads: number = month.map(v => v.downloads).reduce((a, b) => a + b, 0);
+    const lastMonthDownloads: number = lastMonth.map(v => v.downloads).reduce((a, b) => a + b, 0);
 
     directive.main.packages.updateBarChart(
       s.Main.MoM,
@@ -116,8 +116,8 @@ function render(packages: string[]) {
     /* day */
     const day = latest.slice(0, -2).slice(-1);
     const lastDay = latest.slice(0, -3).slice(-1);
-    const dayDownloads: number = day.map(v => v.downloads).reduce((a, b) => a + b);
-    const lastDayDownloads: number = lastDay.map(v => v.downloads).reduce((a, b) => a + b);
+    const dayDownloads: number = day.map(v => v.downloads).reduce((a, b) => a + b, 0);
+    const lastDayDownloads: number = lastDay.map(v => v.downloads).reduce((a, b) => a + b, 0);
 
     directive.main.packages.updateBarChart(
       s.Main.DoD,
