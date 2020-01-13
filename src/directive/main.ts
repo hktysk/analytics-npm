@@ -18,11 +18,11 @@ export default class main {
 
     updateLineChartForWeek: (week: Downloads[], lastWeek: Downloads[]) => {
       week = week.map(v => ({
-        day: v.day.replace('2019-', '').replace('-', '/'),
+        day: v.day.slice(5).replace('-', '/'),
         downloads: v.downloads
       }));
       lastWeek = lastWeek.map(v => ({
-        day: v.day.replace('2019-', '').replace('-', '/'),
+        day: v.day.slice(5).replace('-', '/'),
         downloads: v.downloads
       }));
 

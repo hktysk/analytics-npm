@@ -97,8 +97,8 @@ function render(packages) {
             old = lodash_1.default.cloneDeep(state.downlodedPackages[packageName].old.downloads);
         }
         /* year */
-        var latestDownloads = latest.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; });
-        var oldDownloads = old.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; });
+        var latestDownloads = latest.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; }, 0);
+        var oldDownloads = old.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; }, 0);
         directive.main.packages.updateBarChart(s.Main.YoY, latestDownloads, oldDownloads, {
             latest: year,
             old: lastYear
@@ -106,8 +106,8 @@ function render(packages) {
         /* month */
         var month = latest.slice(0, -2).slice(-31);
         var lastMonth = latest.slice(0, -33).slice(-31);
-        var monthDownloads = month.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; });
-        var lastMonthDownloads = lastMonth.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; });
+        var monthDownloads = month.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; }, 0);
+        var lastMonthDownloads = lastMonth.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; }, 0);
         directive.main.packages.updateBarChart(s.Main.MoM, monthDownloads, lastMonthDownloads, {
             latest: 'latest',
             old: 'before'
@@ -115,8 +115,8 @@ function render(packages) {
         /* day */
         var day = latest.slice(0, -2).slice(-1);
         var lastDay = latest.slice(0, -3).slice(-1);
-        var dayDownloads = day.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; });
-        var lastDayDownloads = lastDay.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; });
+        var dayDownloads = day.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; }, 0);
+        var lastDayDownloads = lastDay.map(function (v) { return v.downloads; }).reduce(function (a, b) { return a + b; }, 0);
         directive.main.packages.updateBarChart(s.Main.DoD, dayDownloads, lastDayDownloads, {
             latest: 'latest',
             old: 'before'
